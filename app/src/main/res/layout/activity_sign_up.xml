@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCFCF4">
+
+    <ImageView
+        android:id="@+id/imageViewLogoSignUp"
+        android:layout_width="159dp"
+        android:layout_height="167dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+         />
+<!--    android:src="@drawable/cafe_user_icon"-->
+
+    <EditText
+        android:id="@+id/editTextFullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageViewLogoSignUp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Full Name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextPhoneNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextFullName"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Phone No."
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/editTextPUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPhoneNo"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Username"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextEmailSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPUsername"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editTextPasswordSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEmailSignUp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPasswordSignUp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="#BC6130"
+        android:text="Sign Up"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textViewSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSignUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:text="Already have an account? Login"
+        android:textColor="#2196F3" />
+
+    <Button
+        android:id="@+id/btnSampleGoToLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewSignIn"
+        android:layout_alignBottom="@+id/textViewSignIn"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="-92dp"
+        android:text="Go to Login" />
+
+</RelativeLayout>
