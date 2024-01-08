@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.homepage)
 
+
         dbHelper = DataBaseHelper(this)
 
         val productList = dbHelper.getAllProducts()
@@ -27,5 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         // Then set the layout manager
         productRV.layoutManager = LinearLayoutManager(applicationContext)
+
     }
 }
