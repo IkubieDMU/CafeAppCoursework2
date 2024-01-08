@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cafeappcoursework.model.Products
 
 
-class ProductAdapter(private val context: Context, private val productList: List<Products>) :
+class ProductAdapter(private val context: Context, private val productList: List<Products>, private val onItemClick: (Products) -> Unit) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
 
@@ -29,9 +29,14 @@ class ProductAdapter(private val context: Context, private val productList: List
         val currentItem = productList[position]
 
         holder.productName.text = currentItem.productName
-        holder.productType.text = context.getString(R.string.product_type,currentItem.type)
+        holder.productType.text = context.getString(R.string.product_type, currentItem.type)
         val formattedPrice = String.format("%.2f", currentItem.price)
         holder.productPrice.text = context.getString(R.string.price_format, formattedPrice)
+
+        // Set click listener for the "Add to Favorites" button
+        holder.itemView.setOnClickListener {
+            onItemClick(currentItem)
+        }
     }
 
     override fun getItemCount(): Int {
