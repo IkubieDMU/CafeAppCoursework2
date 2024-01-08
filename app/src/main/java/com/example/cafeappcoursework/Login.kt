@@ -32,6 +32,7 @@ class Login : AppCompatActivity() {
 
                 if (validated) {
                     DisplayMesssage("Login Successful")
+                    redirectToProfile(a)
                 } else {
                     DisplayMesssage("Login not Successful")
                 }
@@ -54,4 +55,11 @@ class Login : AppCompatActivity() {
         val i = Intent(this@Login, SignUp::class.java)
         startActivity(i)
     }
+
+    private fun redirectToProfile(username: String) {
+        val intent = Intent(this@Login, Profile::class.java)
+        intent.putExtra("USERNAME", username)
+        startActivity(intent)
+    }
+
 }

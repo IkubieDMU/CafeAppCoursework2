@@ -180,9 +180,9 @@ class DataBaseHelper(private val context: Context) : SQLiteOpenHelper(context, D
         if (cursor.moveToFirst()) {
             do {
 
-                val prodNameIndex = cursor.getColumnIndexOrThrow(COLUMN_ProductName)
-                val prodTypeIndex = cursor.getColumnIndexOrThrow(COLUMN_ProductType)
-                val prodPriceIndex = cursor.getColumnIndexOrThrow(COLUMN_ProductPrice)
+                val prodNameIndex = cursor.getColumnIndex(COLUMN_ProductName)
+                val prodTypeIndex = cursor.getColumnIndex(COLUMN_ProductType)
+                val prodPriceIndex = cursor.getColumnIndex(COLUMN_ProductPrice)
 
                 val prodName = cursor.getString(prodNameIndex)
                 val prodType = cursor.getString(prodTypeIndex)
@@ -198,5 +198,31 @@ class DataBaseHelper(private val context: Context) : SQLiteOpenHelper(context, D
 
         return productList
     }
+
+    fun getUserDetails(username: String): User? {
+        val db = readableDatabase
+        val selection = "$COLUMN_Username = ?"
+        val selectionArgs = arrayOf(username)
+
+        val cursor = db.query(TABLE_USERS, null, selection, selectionArgs, null, null, null)
+
+        var user: User? = null
+
+        if (cursor.moveToFirst()) {
+            val fullNameIndex = cursor.getColumnIndexOrThrow(COLUMN_FullName)
+            val emailIndex = cursor.getColumnIndexOrThrow(COLUMN_Email)
+
+            val fullName = cursor.getString(fullNameIndex)
+            val email = cursor.getString(emailIndex)
+
+            user = User(fullName,"",email,username,"")
+        }
+
+        cursor.close()
+        db.close()
+
+        return user
+    }
+
 
 }
